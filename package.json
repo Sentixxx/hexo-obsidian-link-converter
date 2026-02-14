@@ -1,6 +1,6 @@
 {
   "name": "hexo-obsidian-link-converter",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Convert Obsidian-style wiki links ([[...]]) to Hexo permanent links based on abbrlink.",
   "main": "index.js",
   "files": [
