@@ -1,5 +1,14 @@
 # hexo-obsidian-link-converter
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/hexo-obsidian-link-converter">
+    <img src="https://img.shields.io/npm/v/hexo-obsidian-link-converter.svg" alt="npm version">
+  </a>
+  <img src="https://img.shields.io/npm/dm/hexo-obsidian-link-converter.svg" alt="downloads">
+  <img src="https://img.shields.io/npm/l/hexo-obsidian-link-converter.svg" alt="license">
+  <img src="https://img.shields.io/node/v/hexo-obsidian-link-converter.svg" alt="node version">
+</p>
+
 Convert Obsidian-style bidirectional links (`[[...]]`) into Hexo permanent links (based on the article’s `abbrlink` in front matter).
 
 ## Features
