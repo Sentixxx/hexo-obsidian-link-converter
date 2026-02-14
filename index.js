@@ -277,9 +277,6 @@ function isPluginEnabled(pluginConfig) {
   if (Object.prototype.hasOwnProperty.call(pluginConfig, 'enable')) {
     return pluginConfig.enable !== false;
   }
-  if (Object.prototype.hasOwnProperty.call(pluginConfig, 'enbale')) {
-    return pluginConfig.enbale !== false;
-  }
   return true;
 }
 

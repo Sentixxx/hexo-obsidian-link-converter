@@ -272,18 +272,11 @@ test('auto-registers filters when loaded by Hexo global context', () => {
   assert.equal(typeof loadedPlugin, 'function');
 });
 
-test('does not register filters when plugin is disabled by enable/enbale flag', () => {
+test('does not register filters when plugin is disabled by enable flag', () => {
   const disabledByEnable = createHexoMock({
     config: { obsidian_link_converter: { enable: false } },
     posts: [{ title: 'Hello Hexo', slug: 'hello-hexo', abbrlink: 'abcd1234' }]
   });
   plugin(disabledByEnable.hexo);
   assert.equal(disabledByEnable.handlers.size, 0);
-
-  const disabledByEnbale = createHexoMock({
-    config: { obsidian_link_converter: { enbale: false } },
-    posts: [{ title: 'Hello Hexo', slug: 'hello-hexo', abbrlink: 'abcd1234' }]
-  });
-  plugin(disabledByEnbale.hexo);
-  assert.equal(disabledByEnbale.handlers.size, 0);
 });
