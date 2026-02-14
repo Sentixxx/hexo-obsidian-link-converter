@@ -1,12 +1,19 @@
 {
   "name": "hexo-obsidian-link-converter",
   "version": "0.1.3",
-  "description": "Convert Obsidian-style wiki links to Hexo permanent links based on abbrlink",
+  "description": "Convert Obsidian-style wiki links ([[...]]) to Hexo permanent links based on abbrlink.",
   "main": "index.js",
+
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+
   "scripts": {
     "test": "node --test",
     "prepublishOnly": "npm test"
   },
+
   "keywords": [
     "hexo",
     "hexo-plugin",
@@ -14,5 +21,22 @@
     "wikilink",
     "abbrlink"
   ],
-  "license": "MIT"
+
+  "author": "Sentixxx",
+  "license": "MIT",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sentixxx/hexo-obsidian-link-converter.git"
+  },
+
+  "homepage": "https://github.com/Sentixxx/hexo-obsidian-link-converter#readme",
+
+  "bugs": {
+    "url": "https://github.com/Sentixxx/hexo-obsidian-link-converter/issues"
+  },
+
+  "engines": {
+    "node": ">=16"
+  }
 }
