@@ -1,56 +1,56 @@
 # hexo-obsidian-link-converter
 
-把 Obsidian 双向链接（`[[...]]`）转换为 Hexo 永久链接（基于文章 front matter 的 `abbrlink`）。
+Convert Obsidian-style bidirectional links (`[[...]]`) into Hexo permanent links (based on the article’s `abbrlink` in front matter).
 
-## 功能
+## Features
 
-- 支持通过 `enable` 开关启用/禁用插件（兼容 `enbale` 拼写）
-- 转换 `[[标题]]` -> `[标题](/posts/<abbrlink>)`
-- 支持 `[[标题|别名]]`
-- 支持 `[[标题#锚点]]` 与 `[[标题#锚点|别名]]`
-- 可配置域名前缀，输出绝对地址
-- 在 `before_post_render` 阶段转换，且仅修改编译内容，不修改源 Markdown 文件
-- 不替换 fenced code block 与 inline code 中的 `[[...]]`
-- 内置自动化测试（`npm test`）
+* Supports enabling/disabling the plugin via the `enable` switch (compatible with the misspelling `enbale`)
+* Converts `[[Title]]` → `[Title](/posts/<abbrlink>)`
+* Supports `[[Title|Alias]]`
+* Supports `[[Title#Anchor]]` and `[[Title#Anchor|Alias]]`
+* Configurable domain prefix for generating absolute URLs
+* Converts during the `before_post_render` stage and only modifies compiled content without changing the source Markdown files
+* Does not replace `[[...]]` inside fenced code blocks or inline code
+* Built-in automated tests (`npm test`)
 
-## 安装
+## Installation
 
-在 Hexo 根目录安装（本地开发可用 `npm link` 或 `file:` 方式）。
+Install in the Hexo root directory (for local development, you can use `npm link` or the `file:` method).
 
 ```bash
 npm install hexo-obsidian-link-converter
 ```
 
-## 配置
+## Configuration
 
-在 Hexo `_config.yml` 中添加：
+Add the following to your Hexo `_config.yml`:
 
 ```yml
 obsidian_link_converter:
-  # 可选，是否启用插件（默认 true）
-  # 兼容旧拼写 enbale
+  # Optional: whether to enable the plugin (default: true)
+  # Compatible with the old misspelling "enbale"
   enable: true
-  # 可选，配置后输出绝对链接
-  # 例如: https://example.com/blog
+  # Optional: output absolute URLs if configured
+  # Example: https://example.com/blog
   domain_prefix: ""
-  # 可选，开启后打印调试日志
+  # Optional: enable debug logging
   debug: false
 ```
 
-## 匹配规则
+## Matching Rules
 
-- 目标文章匹配优先级：`title` -> `slug`
-- 只有目标文章存在 `abbrlink` 才会转换
-- 找不到目标时保留原始 `[[...]]`
+* Target article matching priority: `title` → `slug`
+* Conversion only occurs if the target article contains `abbrlink`
+* If no target is found, the original `[[...]]` is preserved
 
-## 输出示例
+## Output Examples
 
-假设文章 `Hello Hexo` 的 `abbrlink: abcd1234`
+Assume the article **Hello Hexo** has `abbrlink: abcd1234`
 
-- `[[Hello Hexo]]` -> `[Hello Hexo](/posts/abcd1234)`
-- `[[Hello Hexo|点我]]` -> `[点我](/posts/abcd1234)`
-- `[[Hello Hexo#Section A]]` -> `[Hello Hexo](/posts/abcd1234#Section%20A)`
+* `[[Hello Hexo]]` → `[Hello Hexo](/posts/abcd1234)`
+* `[[Hello Hexo|Click Me]]` → `[Click Me](/posts/abcd1234)`
+* `[[Hello Hexo#Section A]]` → `[Hello Hexo](/posts/abcd1234#Section%20A)`
 
-如果 `domain_prefix: https://example.com`
+If `domain_prefix: https://example.com`
 
-- `[[Hello Hexo]]` -> `[Hello Hexo](https://example.com/posts/abcd1234)`
+* `[[Hello Hexo]]` → `[Hello Hexo](https://example.com/posts/abcd1234)`
